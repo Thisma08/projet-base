@@ -1,0 +1,7 @@
+<ul>
+  @for (question of questions; track $index){
+    <li>
+      {{$index+1}} - {{question.questionText}} <button (click)="deleteQuestion(question)" title="Delete">X</button>
+    </li>
+  }
+</ul>

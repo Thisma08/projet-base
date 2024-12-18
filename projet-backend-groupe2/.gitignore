@@ -1,0 +1,13 @@
+/.idea/
+/.git/
+/global.json
+/ProjetASP.sln.DotSettings.user
+
+/Application/bin/
+/Controller/bin/
+/Domain/bin/
+/Infrastructure/bin/
+/Application/obj/
+/Controller/obj/
+/Domain/obj/
+/Infrastructure/obj/

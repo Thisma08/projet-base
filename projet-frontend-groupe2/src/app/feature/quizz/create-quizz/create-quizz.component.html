@@ -1,0 +1,63 @@
+<form #formElement="ngForm">
+  <div class="title">Create a quizz</div>
+  <div>
+    <label class="labelTitle">
+      <p>Title :</p><input type="text" [(ngModel)]="quizz.title" name="title" required>
+    </label>
+  </div>
+  <div>
+    <label class="labelDescription">
+      <p>Description :</p> <textarea [(ngModel)]="quizz.description" name="description" required>></textarea>
+
+    </label>
+  </div>
+  <div>
+<!--    <label class="labelAnswerTime">-->
+<!--      Time to answer : <input type="number" [(ngModel)]="quizz.answerTime" name="answerTime" min="5" required>-->
+
+<!--    </label>-->
+  </div>
+
+  <div>
+
+    <label class="labelTheme">Theme:</label>
+    <select [(ngModel)]="quizz.theme.id" name="theme" required>
+      @for(theme of themes; track $index) {
+        <option [value]="theme.id">{{theme.title}}</option>
+      }
+    </select>
+
+  </div>
+
+  <div class="menu-container">
+    <div class="menu-item">
+      <input type="checkbox" class="menu-checkbox" id="menu1">
+      <label class="menu-label" for="menu1">
+        Ajouter une question
+        <span class="menu-icon">▼</span>
+      </label>
+      <div class="menu-content">
+        <app-create-question (questionCreated)="addToList($event)"></app-create-question>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-container">
+    <div class="menu-item">
+      <input type="checkbox" class="menu-checkbox" id="menu2">
+      <label class="menu-label" for="menu2">
+        Liste des questions
+        <span class="menu-icon">▼</span>
+      </label>
+      <div class="menu-content">
+        <app-list-questions [questions]="quizz.questions" (questionDeleted)="deleteQuestion($event)"></app-list-questions>
+      </div>
+    </div>
+  </div>
+
+
+
+    <input type="submit" [disabled]="formElement.invalid" value="Create quizz" (click)="afficher()">
+
+</form>
+

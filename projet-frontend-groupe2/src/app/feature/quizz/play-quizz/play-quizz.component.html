@@ -1,0 +1,9 @@
+<div id="quizz">
+  @if (!finishedQuizz){
+<!--    <app-answer-question [question]="question" (questionAnswered)="nextQuestion($event)" [competitive]="competitive"></app-answer-question>-->
+  } @else {
+    <div>
+      {{nbQuestionsBonnes}}/{{quizz!.questions.length}}
+    </div>
+  }
+</div>

@@ -1,0 +1,42 @@
+body {
+  background-color: #ffecd5;
+}
+
+/* Pour les routes */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background-color: #ff9b24;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Passage souris */
+nav a:hover {
+  background-color: #ffb058;
+  transform: scale(1.05);
+}
+
+/* Page active */
+nav a.active {
+  background-color: #ffb058;
+  color: #0095ff;
+}
+
+router-outlet {
+  display: block;
+  margin-top: 20px;
+}

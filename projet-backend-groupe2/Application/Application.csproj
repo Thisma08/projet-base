@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AutoMapper" Version="13.0.1"/>
+        <PackageReference Include="BCrypt.Net-Next" Version="4.0.3"/>
+        <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="Microsoft.AspNetCore.Mvc.Core"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Domain\Domain.csproj"/>
+        <ProjectReference Include="..\Infrastructure\Infrastructure.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="v1\Cores\" />
+        <Folder Include="v1\Service\"/>
+    </ItemGroup>
+
+</Project>

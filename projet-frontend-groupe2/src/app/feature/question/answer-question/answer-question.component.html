@@ -1,0 +1,11 @@
+@if (question != null){
+  <h3>{{question.title}}</h3>
+  <div class="answer_container">
+    @for (answer of answers; track i; let i = $index){
+      <div (click)="answerQuestion(answer)" [id]="'answer_'+(i+1)" class="answer"><div class="text"><span [id]="'symbol_'+(i+1)" class="symbol">{{symbols[i]}}</span>{{answer}}</div></div>
+    }
+  </div>
+  @if (competitive){
+    <div class="timer">{{timer | async | date:'ss'}}</div>
+  }
+}

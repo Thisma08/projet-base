@@ -1,0 +1,10 @@
+#quizz{
+  margin: auto;
+  width: 500px;
+  height: 500px;
+  background-color: ghostwhite;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

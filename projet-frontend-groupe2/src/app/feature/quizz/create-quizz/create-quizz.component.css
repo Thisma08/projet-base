@@ -1,0 +1,149 @@
+/* Style du conteneur principal du formulaire */
+form {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  background-color: #ffd698; /* Couleur de fond */
+}
+
+/* Style des labels pour un alignement correct */
+label {
+  display: flex;
+  justify-content: space-between; /* Aligne le texte et le champ */
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #af771a;
+}
+
+/* Style des champs de saisie */
+input[type="text"],
+textarea,
+select
+{
+  width: 67%; /* Réduction pour laisser de l'espace au label */
+  padding: 10px;
+  margin-left: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical; /* Permet d'agrandir seulement verticalement */
+}
+
+/* Style pour le bouton de soumission */
+input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #0095ff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+input[type="submit"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Titre du formulaire */
+.title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Style du conteneur du menu */
+.menu-container {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.menu-item {
+  border-bottom: 1px solid #ddd;
+  padding: 15px;
+}
+
+/* Style du label du menu */
+.menu-label {
+  font-size: 16px;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Style de l'icône de flèche */
+.menu-icon {
+  background-color: #e1e1e1;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: transform 0.3s;
+}
+
+/* Style du contenu caché */
+.menu-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  font-size: 14px;
+  color: #555;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+/* Rotation de l'icône quand le menu est ouvert */
+.menu-checkbox:checked + .menu-label .menu-icon {
+  transform: rotate(180deg);
+}
+
+/* Affichage du contenu quand la checkbox est cochée */
+.menu-checkbox:checked ~ .menu-content {
+  max-height: 200px; /* Ajuster selon le contenu */
+}
+
+/* Masquer les checkboxes */
+.menu-checkbox {
+  display: none;
+}
+
+/* Espacement pour les descriptions */
+.labelDescription, .labelTitle, .labelTheme {
+  display: flex;
+  align-items: center;
+}
+
+/* Marges et espacement supplémentaires pour un look plus propre */
+.labelDescription label, .labelTitle label, .labelTheme label {
+  margin-right: 10px;
+}
+
+form {
+  background-color: #ffd698;
+}
+
+p {
+  width: 20%;
+}

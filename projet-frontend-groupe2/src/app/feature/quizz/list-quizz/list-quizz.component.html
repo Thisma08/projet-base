@@ -1,0 +1,41 @@
+<!--<button>-->
+<!--  <img src="assets/filter-icon.png" alt="Icône de filtre">-->
+<!--</button>-->
+
+<div class="search-bar">
+  <span class="search-icon">🔍</span>
+
+  @if (typeFiltre == 1) {
+    {{resetFilter()}}
+    <input type="text" placeholder="Recherchez votre quizz par titre"  [(ngModel)]="searchTerm" (input)="filterQuizzes()">
+  } @else if (typeFiltre == 2) {
+    {{resetFilter()}}
+    <input type="text" placeholder="Recherchez votre quizz par description"  [(ngModel)]="searchTerm" (input)="filterQuizzes()">
+  } @else if (typeFiltre == 3) {
+    {{resetFilter()}}
+    <select id="theme" name="theme" required [(ngModel)]="searchTerm" (change)="filterQuizzes()">
+      <option value="">Select a theme</option>
+      @for(theme of themes; track $index) {
+        <option [value]="theme.title">{{theme.title}}</option>
+      }
+    </select>
+  }
+
+  <select [(ngModel)]="typeFiltre" (change)="filterQuizzes()">
+    <option [value]="1">Filter by title</option>
+    <option [value]="2">Filter by description</option>
+    <option [value]="3">Filter by theme</option>
+  </select>
+</div>
+@for (quizz of filteredQuizzs; track $index) {
+    <div class="bloc-quizz" style="background-color: hotpink;">
+      <div class="title-quizz">
+        {{quizz.title+"  |  "}}
+        {{quizz.theme.title + ""}}
+      </div>
+      <div class="desc-quizz">
+        {{quizz.description}}
+      </div>
+    </div>
+}
+

@@ -1,0 +1,29 @@
+<form [formGroup]="questionForm" (submit)="createQuestion();questionForm.reset()" (dblclick)="autoComplete()">
+  <table>
+    <thead>
+      <tr>
+        <th>Titre de la question</th>
+        <td><input type="text" formControlName="title"></td>
+      </tr>
+      <tr>
+        <th>Réponse correcte</th>
+        <td><input type="text" formControlName="correctAnswer"></td>
+      </tr>
+    </thead>
+    <tbody formGroupName="wrongAnswers">
+      <tr>
+        <th>Mauvaise réponse 1</th>
+        <td><input type="text" formControlName="answer1"></td>
+      </tr>
+      <tr>
+        <th>Mauvaise réponse 2</th>
+        <td><input type="text" formControlName="answer2"></td>
+      </tr>
+      <tr>
+        <th>Mauvaise réponse 3</th>
+        <td><input type="text" formControlName="answer3"></td>
+      </tr>
+    </tbody>
+  </table>
+  <input type="submit" [disabled]="questionForm.invalid">
+</form>

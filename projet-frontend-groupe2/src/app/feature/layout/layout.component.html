@@ -1,0 +1,31 @@
+<div>
+  <nav>
+  @if(userRole == 'ROLES_USER') {
+    <a routerLinkActive="active" routerLink="/home">Home</a>
+    <a routerLinkActive="active" routerLink="/user/user1">User1</a>
+    <a routerLinkActive="active" routerLink="/user/user2">User2</a>
+    <a routerLinkActive="active" routerLink="/user/user3">User3</a>
+  }
+  @if(userRole == 'ROLES_ADMIN') {
+    <a routerLinkActive="active" routerLink="/home">Home</a>
+    <a routerLinkActive="active" routerLink="/admin/admin1">Admin1</a>
+    <a routerLinkActive="active" routerLink="/admin/admin2">Admin2</a>
+  }
+  </nav>
+
+  <h2>Welcome!</h2>
+  @if(userRole == 'ROLES_ADMIN') {
+    <p>Your role: ADMIN.</p>
+  }
+  @if(userRole == 'ROLES_USER') {
+    <p>Your role: USER.</p>
+  }
+
+  <hr>
+
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+

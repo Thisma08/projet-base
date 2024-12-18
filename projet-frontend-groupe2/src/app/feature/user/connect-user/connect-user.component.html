@@ -1,0 +1,21 @@
+<form [formGroup]="form" (submit)="sendData()">
+<!--  <div type="text">-->
+<!--    <label>-->
+<!--      Username : <input type="text" formControlName="username" required>-->
+<!--    </label>-->
+<!--  </div>-->
+
+  <div type="text">
+    <label>
+      Mail or Username : <input type="text" formControlName="usernameMail" required>
+    </label>
+  </div>
+
+  <div type="text">
+    <label>
+      Password : <input type="password" formControlName="password" required>
+    </label>
+  </div>
+
+  <input type="submit" [disabled]="form.invalid" value="Log in">
+</form>

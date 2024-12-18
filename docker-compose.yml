@@ -1,0 +1,48 @@
+﻿version: '3.8'
+
+services:
+  projetDb:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: projetDb
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=yourStrong(!)Password
+    ports:
+      - "1433:1433"
+    volumes:
+      - M:/SQL/data:/var/opt/mssql/data
+      - M:/SQL/log:/var/opt/mssql/log
+      - M:/SQL/secrets:/var/opt/mssql/secrets
+    networks:
+      - projet-network
+    restart: always
+    
+  frontend:
+    build:
+      context: ./projet-frontend-groupe2  
+      dockerfile: Dockerfile
+    container_name: projetAngular
+    ports:
+      - "8080:4200"
+    networks:
+      - projet-network
+
+  backend:
+    build: 
+      context: .
+      dockerfile: projet-backend-groupe2/Controller/Dockerfile 
+    container_name: projetApi
+    ports:
+      - "5000:80"
+    depends_on:
+      - projetDb
+    networks:
+      - projet-network
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=projetDb,1433;Database=quizz_db;User Id=sa;Password=yourStrong(!)Password;TrustServerCertificate=true
+    restart: always
+
+networks:
+  projet-network:
+    driver: bridge
